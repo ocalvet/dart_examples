@@ -1,4 +1,8 @@
+import 'operation.dart';
+import 'result.dart';
+
 class Calculator {
+  Operation operation;
   List<int> _values;
   Calculator() {
     _values = [];
@@ -12,9 +16,8 @@ class Calculator {
     _values.remove(val);
   }
 
-  sum() {
-    int sum = _values.reduce((v1, v2) => v1 + v2);
-    return sum;
+  Result calculate() {
+    return this.operation.execute(this._values);
   }
 
   @override
